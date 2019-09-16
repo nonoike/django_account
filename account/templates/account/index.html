@@ -1,0 +1,13 @@
+{% extends "account/base.html" %}
+{% block title %}django アカウント操作 サンプル{% endblock %}
+
+{% block content %}
+    <h1>ホーム</h1>
+    <ul>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'account:logout' %}">{{ user.email }}をログアウト</a></li>
+        {% else %}
+            <li><a href="{% url 'account:login' %}">ログイン</a></li>
+        {% endif %}
+    </ul>
+{% endblock %}
