@@ -1,7 +1,7 @@
 from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
 from django.urls import path, reverse_lazy
 
-from account.views import RegisterView, UserChangeView
+from account.views import RegisterView, UserChangeView, UsersView
 from . import views
 
 app_name = "account"
@@ -14,4 +14,5 @@ urlpatterns = [
          name='password_change'),
     path('register/', RegisterView.as_view(), name='register'),
     path('user_change/', UserChangeView.as_view(), name='user_change'),
+    path('users/', UsersView.as_view(), name='users'),
 ]

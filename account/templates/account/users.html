@@ -1,0 +1,9 @@
+{% if latest_user_list %}
+<ul>
+    {% for user in latest_user_list %}
+    <li>{{ user.display_name }} ({{ user.email }}) さんが {{ user.display_updated_at }} に更新</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No polls are available.</p>
+{% endif %}

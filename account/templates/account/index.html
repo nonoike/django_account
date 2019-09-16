@@ -14,6 +14,7 @@
         をログアウト</a></li>
     <li><a href="{% url 'account:password_change' %}">パスワード変更</a></li>
     <li><a href="{% url 'account:user_change' %}">ユーザー情報変更</a></li>
+    <li><a href="{% url 'account:users' %}">ユーザー一覧</a></li>
     {% else %}
     <li><a href="{% url 'account:login' %}">ログイン</a></li>
     {% endif %}

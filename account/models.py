@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
@@ -52,6 +54,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def is_active(self):
         return not self.cancelled_at
+
+    def display_name(self):
+        return self.user_name if self.user_name else '名称未設定'
+
+    def display_updated_at(self):
+        return "{0:%Y-%m-%d %H:%M:%S}".format(self.updated_at)
 
     class Meta:
         db_table = 'users'
