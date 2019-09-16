@@ -5,8 +5,15 @@
 <h1>ホーム</h1>
 <ul>
     {% if user.is_authenticated %}
-    <li><a href="{% url 'account:logout' %}">{{ user.email }}をログアウト</a></li>
+    <li><a href="{% url 'account:logout' %}">
+        {% if user.user_name %}
+        {{ user.user_name }}
+        {% else %}
+        {{ user.email }}
+        {% endif %}
+        をログアウト</a></li>
     <li><a href="{% url 'account:password_change' %}">パスワード変更</a></li>
+    <li><a href="{% url 'account:user_change' %}">ユーザー情報変更</a></li>
     {% else %}
     <li><a href="{% url 'account:login' %}">ログイン</a></li>
     {% endif %}
