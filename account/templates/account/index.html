@@ -6,6 +6,7 @@
 <ul>
     {% if user.is_authenticated %}
     <li><a href="{% url 'account:logout' %}">{{ user.email }}をログアウト</a></li>
+    <li><a href="{% url 'account:password_change' %}">パスワード変更</a></li>
     {% else %}
     <li><a href="{% url 'account:login' %}">ログイン</a></li>
     {% endif %}
