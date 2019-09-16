@@ -1,0 +1,14 @@
+version: "3"
+services:
+  webserver:
+    build:
+      context: .
+      dockerfile: "Dockerfile"
+    container_name: "django_account"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ".:/workspace/django_account"
+    restart: "always"
+    tty: true
+    command: sh -c 'python /workspace/django_account/manage.py runserver 0:8000'
